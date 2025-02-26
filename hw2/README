@@ -1,0 +1,50 @@
+README for Homework 2
+----------------------
+
+Name: Jack Sampson
+Assignment: Homework 2
+
+How to Compile:
+---------------
+This project is compiled using a provided Makefile. To compile the programs, navigate to the directory containing the source code and type make in the terminal. This will compile the programs matrix, and mysh as specified in the Makefile.
+
+The Makefile uses the following configuration:
+Compiler: gcc
+Compiler Flags: -Wall (for compiler warnings), -g (for debugging information)
+Compiler Libraries: -lpthread (for process threads), -lreadline (for reading lines)
+
+Compiled executables matrix and mysh will be created in the same directory.
+
+To compile the files, you can run:
+make all
+
+To clean up the compiled files, you can run:
+make clean
+
+How to Run:
+-----------
+To run matrix: ./matrix
+To run mysh: ./mysh
+Mysh is a basic shell terminal and can run programs in seperate threads like ps, cat and ls
+
+Known Bugs and Limitations:
+---------------------------
+Mysh cannot handle quotation marks in tokens to identify a spaced file/directory. 
+
+Summary of Features and Extra Credits Completed:
+------------------------------------------------
+EC not completed
+
+File Directory:
+---------------
+matrix.c: Source code for matrix.
+matrix_operations.c: all the thread safe functions for matrix.c
+matrix_operations.h: header file to group functions for matrix.c
+mysh.c: Source code for mysh (Simple Blocking Shell) 
+Makefile: Used for compiling the programs.
+
+Notes:
+------
+First ran into issues with rand function not being thread safe causing all matricies generated to be symettric across leading diagonal. I needed to user rand_r that is thread safe. The multiplication threads would need to be run after all the threads generating the matricies were complete and needed blocking code. All code was checked with valgrind and no memory leaks were detected.
+
+End of README
